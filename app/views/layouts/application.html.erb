@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Choco</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!-- bootstrap mobile settings-->
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="http://vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
+    <%= stylesheet_link_tag 'videojs-sublime-skin.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+    <%= yield %>
+
+    <script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
+  </body>
+</html>

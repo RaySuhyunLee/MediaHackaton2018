@@ -1,0 +1,81 @@
+<header class="navbar navbar-expand bg-white shadow-bottom fixed-top justify-content-between">
+  <div>
+    <a class="btn btn-link" href="<%= index_path %>">
+      <%= octicon "chevron-left" %></a>
+    <a class="navbar-brand" href="<%= index_path %>">
+      <%= image_tag "brand", style:"width: 70px;" %>
+    </a>
+  </div>
+  <% if user_signed_in? %>
+    <%= link_to destroy_user_session_path, method: :DELETE, class: "text-dark" do %>
+      <i class="material-icons">person</i>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path, class:"btn btn-link" do %>
+      Log in
+    <% end %>
+  <% end %>
+</header>
+
+<main style="padding-top: 80px; padding-bottom: 100px;" role="main">
+  <div class="mr-2 ml-2">
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text">
+          @<%= User.find(@post.user_id).name %>
+          |
+          <%= time_ago_in_words(@post.created_at) %>
+        </p>
+
+        <% if @post.video_src? %>
+          <video id="player" class="vid-full" controls preload="auto">
+            <source src="<%= asset_path @post.video_src %>" type="video/mp4">
+          </video>
+        <% elsif @post.video_thumbnail? %>
+          <%= image_tag @post.video_thumbnail, class:"img-full" %>
+        <% end %>
+
+        <p>
+          <%= @post.story %>
+        </p>
+
+        <hr>
+
+        <form>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">$</div>
+              </div>
+              <input type="text" class="form-control" >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Additional messages to user"></textarea>
+          </div>
+
+          <div class="form-group float-right">
+            <button type="submit" class="btn btn-success">Check out and contact</button>
+          </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<footer class="navbar navbar-expand fixed-bottom bg-white shadow-top justify-content-between">
+  <input type="file" id="selectedFile" style="display: none;" multiple >
+  <a class="btn btn-link text-dark" href="<%= index_path %>">
+    <i class="material-icons">home</i>
+  </a>
+  <button class="btn btn-link text-dark" onclick="document.getElementById('selectedFile').click();" >
+    <i class="material-icons">add_a_photo</i>
+  </button>
+    <a class="btn btn-link text-dark" href="<%= hot_path %>">
+    <i class="material-icons">whatshot</i>
+  </a>
+</footer>

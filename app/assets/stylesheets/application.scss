@@ -1,0 +1,33 @@
+@import "bootstrap";
+
+.align-center-hr {
+  text-align: center;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+}
+
+.img-full {
+  width: 100%;
+  height: auto;
+}
+
+.vid-full {
+  width: 100%;
+}
+
+.shadow-bottom {
+  box-shadow: 0 1px 5px #ddd;
+}
+
+.shadow-top {
+  box-shadow: 0 -1px 5px #ddd;
+}
+

@@ -1,0 +1,89 @@
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <header class="navbar navbar-expand bg-white justify-content-between shadow-bottom">
+    <div>
+      <a class="btn btn-link" href="<%= index_path %>">
+        <%= octicon "chevron-left" %></a>
+      <div class="navbar-brand" >Share video</div>
+    </div>
+
+    <!-- submit button -->
+    <%= form.submit "Share", class: "btn btn-link" %>
+  </header>
+
+  <main id="content" role="main">
+    <div class="container-fluid">
+
+      <!-- selected items list -->
+      <div class="row p-3">
+        <div class="col-4 p-1">
+          <%= image_tag "choosen_1.png", class: "img-full" %>
+        </div>
+        <div class="col-4 p-1">
+          <%= image_tag "choosen_2.png", class: "img-full" %>
+        </div>
+        <div class="col-4 p-1">
+          <%= image_tag "choosen_3.png", class: "img-full" %>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- form -->
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <%= form.label :story, 'story' %> 
+            <%= form.text_area :story, class: "form-control", placeholder: "Tell us your story (100 chars max)" %>
+          </div>
+          <div class="form-group">
+            <%= label :tags, '#tag' %> 
+            <%= text_field :data, :tags, class: "form-control", placeholder: "ex) #politics #factcheck #iwannahaveacat" %>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- video templates list -->
+      <div class="row">
+        <div class="col-12">
+          <p>Choose a template</p>
+          <div id="templates-wrapper" >
+            <button type="button" class="btn btn-outline-success" onclick="changeVideo(1)">happy</button>
+            <button type="button" class="btn btn-outline-dark">sad</button>
+            <button type="button" class="btn btn-outline-danger" onclick="changeVideo(2)">angry</button>
+            <button type="button" class="btn btn-outline-warning">inspiring</button>
+            <button type="button" class="btn btn-outline-info">funny</button>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- video preview -->
+      <div class="row mt-3 mb-3">
+        <div class="col-12">
+          <p>Preview</p>
+          <video id="player" class="vid-full" controls preload="none">
+            <source src="<%= asset_path 'vid1.mp4' %>" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </main>
+<% end %>
+
+<script>
+  function changeVideo(num) {
+    if (num == 1) {
+      $('#player').attr({
+        "src": "<%= asset_path 'vid1.mp4' %>"
+      });
+    } else {
+      $('#player').attr({
+        "src": "<%= asset_path 'vid2.mp4' %>"
+      });
+    }
+  }
+</script>

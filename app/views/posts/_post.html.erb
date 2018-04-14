@@ -1,0 +1,32 @@
+<div class="card mb-4">
+  <div class="card-body">
+    <p class="card-text">
+      @<%= User.find(post.user_id).name %>
+      |
+      <%= time_ago_in_words(post.created_at) %>
+    </p>
+    <% if post.video_src? %>
+      <video id="player" class="vid-full" autoplay preload="auto">
+        <source src="<%= asset_path post.video_src %>" type="video/mp4">
+      </video>
+    <% elsif post.video_thumbnail? %>
+      <%= image_tag post.video_thumbnail, class:"img-full" %>
+    <% end %>
+
+    <hr>
+
+    <p class="card-text">
+      <%= octicon 'thumbsup' %>
+      likes 
+      <span class="badge badge-light"><%= post.likes %></span>
+      | 
+      <%= octicon 'comment' %>
+      comments 
+      <span class="badge badge-light"><%= post.num_comments %></span>
+
+      <a class="float-right" href="<%= post_path(post) %>">
+        <i class="material-icons">perm_phone_msg</i>
+      </a>
+    </p>
+  </div>
+</div>
