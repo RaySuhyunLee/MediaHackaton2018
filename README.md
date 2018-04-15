@@ -1,24 +1,9 @@
-# README
+## Dependencies
+* RubyOnRails 5.1.5
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## DEMO
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img src="https://github.com/RaySuhyunLee/MediaHackaton2018/blob/master/preview_1.png" width="40%">
+<img src="https://github.com/RaySuhyunLee/MediaHackaton2018/blob/master/preview_2.png" width="40%">
+<img src="https://github.com/RaySuhyunLee/MediaHackaton2018/blob/master/preview_3.png" width="40%">
